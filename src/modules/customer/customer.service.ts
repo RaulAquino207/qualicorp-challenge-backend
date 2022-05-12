@@ -22,16 +22,16 @@ export class CustomerService {
     return await this.customerModel.find().exec();
   }
 
-  async findOne(id: number) {
+  async findOne(id: string) {
     return await this.customerModel.findById(id).exec();
   }
 
-  async update(id: number, updateCustomerDto: CustomerDto) {
+  async update(id: string, updateCustomerDto: CustomerDto) {
     await this.customerModel.updateOne({ _id : id }, updateCustomerDto).exec();
     return this.findOne(id);
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return this.customerModel.deleteOne({ _id : id }).exec();
   }
 }
